@@ -1,3 +1,6 @@
+# Copyright (c) 2025 JiJiucha
+# Licensed under the MIT License (see LICENSE file for details)
+
 from biliAPI.api.login import nav
 
 
@@ -44,8 +47,8 @@ def encWbi(params: dict, img_key: str, sub_key: str):
 
 def getWbi(cookie=cookieClass.null_cookie):
     #api.safety.bili_ticket.get_ticket也可以获取img与sub
-    resp=nav.get_nav_info(cookie=cookie)[2]
-    js=json.loads(resp)
+    resp=nav.get_nav_info(cookie=cookie)
+    js=resp.json()
     img = js['data']['wbi_img']['img_url'].split('/')[-1].split('.')[0]
     sub = js['data']['wbi_img']['sub_url'].split('/')[-1].split('.')[0]
         

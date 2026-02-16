@@ -1,3 +1,6 @@
+# Copyright (c) 2025 JiJiucha
+# Licensed under the MIT License (see LICENSE file for details)
+
 from biliAPI.tools.mRequests import mrequests
 from biliAPI.tools.url import get_session_list_by_type,get_new_session_list,session_detail,get_session_limit_stat,get_session_push_setting,set_session_to_read,remove_session_on_list,set_session_on_top,get_session_dnd_stat,set_session_dnd_stat,set_session_push_setting,set_session_intercept_stat,set_intercept_to_read,remove_all_intercept
 class session_type:

@@ -1,3 +1,6 @@
+# Copyright (c) 2025 JiJiucha
+# Licensed under the MIT License (see LICENSE file for details)
+
 # 来自github BAC项目(https://socialsisteryi.github.io/bilibili-API-collect/)
 
 import hmac

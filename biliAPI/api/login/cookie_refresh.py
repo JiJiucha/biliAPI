@@ -1,3 +1,6 @@
+# Copyright (c) 2025 JiJiucha
+# Licensed under the MIT License (see LICENSE file for details)
+
 from biliAPI.tools.mRequests import mrequests
 from biliAPI.tools.makeurl import makeurl
 from biliAPI.tools.url import is_cookie_need_refresh,get_refresh_csrf_web,refresh_cookie,confirm_refresh

@@ -1,3 +1,6 @@
+# Copyright (c) 2025 JiJiucha
+# Licensed under the MIT License (see LICENSE file for details)
+
 import json,re,requests
 
 # 解析b23.tv得到bv号

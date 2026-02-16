@@ -1,5 +1,8 @@
+# Copyright (c) 2025 JiJiucha
+# Licensed under the MIT License (see LICENSE file for details)
+
 """
-B站API统一响应类
+biliAPI统一响应类
 提供标准化的API返回结构，包含数据、状态码、消息和原始响应
 """
 import json
@@ -22,12 +25,6 @@ class BiliResponse:
     http_status: int = 0
     headers: Dict[str, str] = None
     
-    # 分页信息（如果适用）
-    has_more: bool = False
-    total: int = 0
-    page: int = 1
-    page_size: int = 0
-    
     def __post_init__(self):
         """初始化后处理"""
         if self.headers is None:
@@ -41,6 +38,8 @@ class BiliResponse:
     #@property
     def json(self):
         return json.loads(self.raw_response.text)
+    def raise_for_status(self):
+        return self.raw_response.raise_for_status()
         
     @property
     def text(self):
@@ -58,11 +57,7 @@ class BiliResponse:
             'code': self.code,
             'message': self.message,
             'data': self.data,
-            'http_status': self.http_status,
-            'has_more': self.has_more,
-            'total': self.total,
-            'page': self.page,
-            'page_size': self.page_size
+            'http_status': self.http_status
         }
     
     def __str__(self) -> str:
@@ -110,13 +105,6 @@ class ResponseBuilder:
                 bili_response.code = json_data.get('code', -1)
                 bili_response.message = json_data.get('message', '')
                 bili_response.data = json_data.get('data')
-                
-                # 如果有分页信息，尝试提取
-                if isinstance(bili_response.data, dict):
-                    bili_response.has_more = bili_response.data.get('has_more', False)
-                    bili_response.total = bili_response.data.get('total', 0)
-                    bili_response.page = bili_response.data.get('page', 1)
-                    bili_response.page_size = bili_response.data.get('page_size', 0)
                 
             except json.JSONDecodeError:
                 # 如果不是JSON，将原始文本作为数据

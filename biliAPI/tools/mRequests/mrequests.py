@@ -1,3 +1,6 @@
+# Copyright (c) 2025 JiJiucha
+# Licensed under the MIT License (see LICENSE file for details)
+
 """
 增强版mRequests模块
 支持标准化的响应结构和更好的错误处理

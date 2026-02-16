@@ -1,3 +1,6 @@
+# Copyright (c) 2025 JiJiucha
+# Licensed under the MIT License (see LICENSE file for details)
+
 import uuid,time,json
 
 class private_msg_type:
@@ -20,7 +23,7 @@ class group_msg_type:
     group_display=303
     group_dismiss=304
     group_create=305
-    one_join2=306
+    on_join2=306
 
 class Message:
     

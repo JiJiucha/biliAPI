@@ -1,3 +1,6 @@
+# Copyright (c) 2025 JiJiucha
+# Licensed under the MIT License (see LICENSE file for details)
+
 
 #来源：
 #https://github.com/SocialSisterYi/bilibili-API-collect/issues/847#issuecomment-1807020675

@@ -1,3 +1,6 @@
+# Copyright (c) 2025 JiJiucha
+# Licensed under the MIT License (see LICENSE file for details)
+
 # login
 # login qr web
 login_qr_web_generate='https://passport.bilibili.com/x/passport-login/web/qrcode/generate'
@@ -33,6 +36,7 @@ moral_log='https://api.bilibili.com/x/member/web/moral/log'
 
 # my_info
 vip_info='https://api.bilibili.com/x/vip/web/user/info'
+my_info='https://api.bilibili.com/x/space/myinfo'
 
 update_sign='https://api.bilibili.com/x/member/web/sign/update'
 
@@ -74,6 +78,7 @@ get_notice_unread='https://api.vc.bilibili.com/x/im/web/msgfeed/unread'
 # info
 # card
 get_user_card='https://api.bilibili.com/x/web-interface/card'
+get_user_cards='https://api.bilibili.com/x/polymer/pc-electron/v1/user/cards'
 # info
 get_user_info='https://api.bilibili.com/x/space/wbi/acc/info'
 
