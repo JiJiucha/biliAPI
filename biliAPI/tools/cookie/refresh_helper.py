@@ -1,3 +1,6 @@
+# Copyright (c) 2025 JiJiucha
+# Licensed under the MIT License (see LICENSE file for details)
+
 from biliAPI.api.login import cookie_refresh
 
 def refresh(cookie):
