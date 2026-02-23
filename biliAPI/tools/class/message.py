@@ -25,7 +25,7 @@ class group_msg_type:
     group_create=305
     on_join2=306
 
-class Message:
+class MessageSend:
     
     def __init__(self,cookie,session_type,receiver,content):
         self.message={
@@ -46,6 +46,9 @@ class Message:
         
         self.message['csrf_token']=cookie.get('bili_jct')
         self.message['csrf']=cookie.get('bili_jct')
+class Message:
+    def __init__(self,json):
+        print(json)
 class MessageContentText:
     msg_type=1
     def __init__(self,text):

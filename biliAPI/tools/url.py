@@ -3,22 +3,24 @@
 
 # login
 # login qr web
-login_qr_web_generate='https://passport.bilibili.com/x/passport-login/web/qrcode/generate'
-login_qr_web_poll='https://passport.bilibili.com/x/passport-login/web/qrcode/poll'
+generate_web_url='https://passport.bilibili.com/x/passport-login/web/qrcode/generate'
+poll_web_url='https://passport.bilibili.com/x/passport-login/web/qrcode/poll'
 
 # login info
-nav_info='https://api.bilibili.com/x/web-interface/nav'
+get_nav_info_url='https://api.bilibili.com/x/web-interface/nav'
 
 
 # logout
-login_logout='https://passport.bilibili.com/login/exit/v2'
+logout_url='https://passport.bilibili.com/login/exit/v2'
 
 # refresh cookie
-is_cookie_need_refresh='https://passport.bilibili.com/x/passport-login/web/cookie/info'
-get_refresh_csrf_web='https://www.bilibili.com/correspond/1/'
-refresh_cookie='https://passport.bilibili.com/x/passport-login/web/cookie/refresh'
-confirm_refresh='https://passport.bilibili.com/x/passport-login/web/confirm/refresh'
-
+is_need_refresh_url='https://passport.bilibili.com/x/passport-login/web/cookie/info'
+get_refresh_csrf_url='https://www.bilibili.com/correspond/1/'
+refresh_cookie_irl='https://passport.bilibili.com/x/passport-login/web/cookie/refresh'
+confirm_refresh_url='https://passport.bilibili.com/x/passport-login/web/confirm/refresh'
+#buvid
+get_buvid3_url='https://api.bilibili.com/x/web-frontend/getbuvid'
+get_buvid_url='https://api.bilibili.com/x/frontend/finger/spi'
 
 # safety
 bili_ticket_get='https://api.bilibili.com/bapis/bilibili.api.ticket.v1.Ticket/GenWebTicket'
@@ -45,8 +47,8 @@ get_coin_count='https://account.bilibili.com/site/getCoin'
 
 # message
 # private message
-get_private_unread_count='https://api.vc.bilibili.com/session_svr/v1/session_svr/single_unread'
-get_group_unread_count='https://api.vc.bilibili.com/session_svr/v1/session_svr/my_group_unread'
+get_unread_count_private_url='https://api.vc.bilibili.com/session_svr/v1/session_svr/single_unread'
+get_unread_count_group_url='https://api.vc.bilibili.com/session_svr/v1/session_svr/my_group_unread'
 
 get_session_list_by_type='https://api.vc.bilibili.com/session_svr/v1/session_svr/get_sessions'
 get_new_session_list='https://api.vc.bilibili.com/session_svr/v1/session_svr/new_sessions'
@@ -68,11 +70,12 @@ set_session_intercept_stat='https://api.vc.bilibili.com/session_svr/v1/session_s
 set_intercept_to_read='https://api.vc.bilibili.com/session_svr/v1/session_svr/batch_update_dustbin_ack'
 remove_all_intercept='https://api.vc.bilibili.com/session_svr/v1/session_svr/batch_rm_dustbin'
 
-get_messages_of_session='https://api.vc.bilibili.com/svr_sync/v1/svr_sync/fetch_session_msgs'
-send_message_for_session='https://api.vc.bilibili.com/web_im/v1/web_im/send_msg'
+get_session_msgs_url='https://api.vc.bilibili.com/svr_sync/v1/svr_sync/fetch_session_msgs'
+send_message_url='https://api.vc.bilibili.com/web_im/v1/web_im/send_msg'
 
 # notice message
 get_notice_unread='https://api.vc.bilibili.com/x/im/web/msgfeed/unread'
+get_replies_url='https://api.bilibili.com/x/msgfeed/reply'
 
 # user
 # info
@@ -93,7 +96,8 @@ get_video_detail='https://api.bilibili.com/x/web-interface/view/detail'
 get_video_desc='https://api.bilibili.com/x/web-interface/archive/desc'
 # pagelist
 get_video_pagelist='https://api.bilibili.com/x/player/pagelist'
-
+#like
+like_video_url='https://api.bilibili.com/x/web-interface/archive/like'
 
 # search
 search_all='https://api.bilibili.com/x/web-interface/wbi/search/all/v2'
@@ -113,3 +117,8 @@ followers_list2='https://app.biliapi.net/x/v2/relation/followers'
 
 modify_relation='https://api.bilibili.com/x/relation/modify'
 same_followings_list='https://api.bilibili.com/x/relation/same/followings'
+
+dynamic_get_all_url='https://api.bilibili.com/x/polymer/web-dynamic/v1/feed/all'
+dynamic_get_update_url='https://api.bilibili.com/x/polymer/web-dynamic/v1/feed/all/update'
+
+upload_dynamic_url='https://api.bilibili.com/x/dynamic/feed/draw/upload_bfs'

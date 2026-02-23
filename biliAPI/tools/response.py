@@ -25,6 +25,8 @@ class BiliResponse:
     http_status: int = 0
     headers: Dict[str, str] = None
     
+    has_more=False
+    
     def __post_init__(self):
         """初始化后处理"""
         if self.headers is None:
@@ -71,16 +73,6 @@ class ResponseBuilder:
     
     @staticmethod
     def from_mrequests_result(result: tuple, parse_json: bool = True) -> BiliResponse:
-        """
-        从mrequests的返回结果构建响应
-        
-        Args:
-            result: mrequests返回的三元组 (success, response, text)
-            parse_json: 是否解析JSON响应
-        
-        Returns:
-            BiliResponse: 标准化的响应对象
-        """
         success, response, text = result
         
         # 创建基础响应

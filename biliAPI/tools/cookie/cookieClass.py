@@ -22,6 +22,9 @@ class Cookie:
     def delete(self,key):
         if key in self.cookie:
             del self.cookie[key]
+    
+    def has(self,key):
+        return key in self.cookie
         
     def __str__(self):
         return '; '.join([f'{parse.quote(i)}={parse.quote(self.cookie[i])}' for i in self.cookie.keys()])

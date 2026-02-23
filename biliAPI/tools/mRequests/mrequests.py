@@ -44,25 +44,7 @@ def _prepare_headers(custom_headers):
 
 
 def _make_request(method, url, cookie=null_cookie, header=None, params=None, withwbi=False, 
-                  return_raw: bool = False, *arg, **kwarg):
-    """
-    通用请求函数
-    
-    Args:
-        method: HTTP方法
-        url: 请求URL
-        cookie: Cookie对象
-        header: 自定义请求头
-        params: 请求参数
-        withwbi: 是否使用WBI签名
-        return_raw: 是否返回原始三元组（兼容旧代码）
-        *arg, **kwarg: 其他requests参数
-    
-    Returns:
-        如果return_raw为True，返回原始三元组 (success, response, text)
-        否则返回BiliResponse对象
-    """
-    # 准备请求头（使用空字典作为默认值）
+                  *arg, **kwarg):
     request_headers = _prepare_headers(header or {})
     
     # 准备参数
@@ -83,12 +65,6 @@ def _make_request(method, url, cookie=null_cookie, header=None, params=None, wit
         # 返回结果
         success = response.ok
         text = response.text if success else None
-        
-        # 根据return_raw参数决定返回格式
-        if return_raw:
-            return success, response, text
-        
-        # 返回标准化的响应对象
         return ResponseBuilder.from_mrequests_result((success, response, text))
         
     except requests.RequestException as e:
@@ -105,41 +81,11 @@ def _make_request(method, url, cookie=null_cookie, header=None, params=None, wit
 
 
 def get(url, cookie=null_cookie, header=None, params=None, withwbi=False, 
-        return_raw: bool = False, *arg, **kwarg):
-    """
-    GET请求
-    
-    Args:
-        return_raw: 是否返回原始三元组（兼容旧代码）
-    
-    Returns:
-        如果return_raw为True，返回原始三元组
-        否则返回BiliResponse对象
-    """
-    return _make_request('GET', url, cookie, header, params, withwbi, return_raw, *arg, **kwarg)
+        *arg, **kwarg):
+    return _make_request('GET', url, cookie, header, params, withwbi,*arg, **kwarg)
 
 
 def post(url, cookie=null_cookie, header=None, params=None, withwbi=False, 
-         return_raw: bool = False, *arg, **kwarg):
-    """
-    POST请求
-    
-    Args:
-        return_raw: 是否返回原始三元组（兼容旧代码）
-    
-    Returns:
-        如果return_raw为True，返回原始三元组
-        否则返回BiliResponse对象
-    """
-    return _make_request('POST', url, cookie, header, params, withwbi, return_raw, *arg, **kwarg)
+         *arg, **kwarg):
+    return _make_request('POST', url, cookie, header, params, withwbi, *arg, **kwarg)
 
-
-# 向后兼容的快捷函数
-def get_raw(*args, **kwargs):
-    """获取原始响应（向后兼容）"""
-    return get(*args, **kwargs, return_raw=True)
-
-
-def post_raw(*args, **kwargs):
-    """获取原始响应（向后兼容）"""
-    return post(*args, **kwargs, return_raw=True)

@@ -3,7 +3,7 @@
 
 from biliAPI.tools.mRequests import mrequests
 from biliAPI.tools.makeurl import makeurl
-from biliAPI.tools.url import is_cookie_need_refresh,get_refresh_csrf_web,refresh_cookie,confirm_refresh
+from biliAPI.tools.url import is_need_refresh_url,get_refresh_csrf_url,refresh_cookie_url,confirm_refresh_url
 
 from bs4 import BeautifulSoup
 import json
@@ -34,14 +34,14 @@ def getCorrespondPath(ts):
 
 
 def is_need_refresh(cookie):
-    return mrequests.get(is_cookie_need_refresh,cookie=cookie)
+    return mrequests.get(is_need_refresh_url,cookie=cookie)
 
 
 
 def get_refresh_csrf(cookie):
     ts = round(time.time() * 1000)
     correspondPath=getCorrespondPath(ts)
-    r=mrequests.get(makeurl(get_refresh_csrf_web,correspondPath),cookie=cookie,params={'csrf':cookie.get('bili_jct')})[1]
+    r=mrequests.get(makeurl(get_refresh_csrf_url,correspondPath),cookie=cookie,params={'csrf':cookie.get('bili_jct')})[1]
     
     js=r.json()
     
@@ -52,8 +52,8 @@ def get_refresh_csrf(cookie):
     return refresh_csrf
     
 def refresh_cookie(cookie,refreshv_csrf,refresh_token):
-    return mrequests.post(refresh_cookie,cookie=cookie,params={'csrf':cookie.get('bili_jct'),'refresh_csrf':refresh_csrf,'source':'main_web','refresh_token':refresh_token})
+    return mrequests.post(refresh_cookie_url,cookie=cookie,params={'csrf':cookie.get('bili_jct'),'refresh_csrf':refresh_csrf,'source':'main_web','refresh_token':refresh_token})
     
 
-def confirm_refresh_cookie(cookie,refresh_token):#PS:新cookie，旧refresh_token
-    return mrequests.post(confirm_refresh,cookie=cookie,params={'csrf':cookie.get('bili_jct'),'refresh_token':refresh_token})
+def confirm_refresh(cookie,refresh_token):#PS:新cookie，旧refresh_token
+    return mrequests.post(confirm_refresh_url,cookie=cookie,params={'csrf':cookie.get('bili_jct'),'refresh_token':refresh_token})
