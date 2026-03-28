@@ -6,7 +6,7 @@ from biliAPI.tools.url import like_video_url
 from biliAPI.tools.cookie import cookieClass
 
 
-def _like(cookie,like,av=None,bv=None):
+def _like(like,cookie:cookieClass.Cookie,av=None,bv=None):
     if av and bv:
         raise TypeError('Only one of AV and BV can be selected')
     if not av and not bv:

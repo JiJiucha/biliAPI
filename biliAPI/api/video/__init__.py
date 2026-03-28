@@ -6,7 +6,7 @@ from biliAPI.tools.cookie import cookieClass
 
 
 def get_info(av = None, bv= None, 
-             cookie: cookieClass = cookieClass.null_cookie):
+             cookie:cookieClass.Cookie = cookieClass.null_cookie):
     """
     获取视频基本信息
     
@@ -31,7 +31,7 @@ def get_info(av = None, bv= None,
 
 
 def get_detail(av= None, bv = None, 
-               cookie: cookieClass = cookieClass.null_cookie):
+               cookie: cookieClass.Cookie = cookieClass.null_cookie):
     """
     获取视频详细信息
     
@@ -57,7 +57,7 @@ def get_detail(av= None, bv = None,
 
 
 def get_desc(av = None, bv = None, 
-             cookie: cookieClass = cookieClass.null_cookie):
+             cookie: cookieClass.Cookie = cookieClass.null_cookie):
     """
     获取视频描述
     
@@ -82,7 +82,7 @@ def get_desc(av = None, bv = None,
 
 
 def get_pages(av = None, bv = None, 
-              cookie: cookieClass = cookieClass.null_cookie):
+              cookie: cookieClass.Cookie = cookieClass.null_cookie):
     """
     获取视频分页列表
     

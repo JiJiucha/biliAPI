@@ -9,6 +9,7 @@ import json
 from typing import Any, Dict, Optional, Union
 from dataclasses import dataclass
 
+from biliAPI.tools import json_objects
 
 @dataclass
 class BiliResponse:
@@ -39,7 +40,7 @@ class BiliResponse:
     
     #@property
     def json(self):
-        return json.loads(self.raw_response.text)
+        return json_objects.loads(self.raw_response.text)
     def raise_for_status(self):
         return self.raw_response.raise_for_status()
         
@@ -96,7 +97,7 @@ class ResponseBuilder:
                 # 提取B站API的标准字段
                 bili_response.code = json_data.get('code', -1)
                 bili_response.message = json_data.get('message', '')
-                bili_response.data = json_data.get('data')
+                bili_response.data = json_objects.from_python(json_data.get('data'))
                 
             except json.JSONDecodeError:
                 # 如果不是JSON，将原始文本作为数据

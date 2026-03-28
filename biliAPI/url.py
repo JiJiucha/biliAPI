@@ -7,9 +7,6 @@ get_refresh_csrf_url='https://www.bilibili.com/correspond/1/'
 refresh_cookie_irl='https://passport.bilibili.com/x/passport-login/web/cookie/refresh'
 confirm_refresh_url='https://passport.bilibili.com/x/passport-login/web/confirm/refresh'
 
-# safety
-day_reward='https://api.bilibili.com/x/member/web/exp/reward'
-day_coin_reward='https://api.bilibili.com/x/web-interface/coin/today/exp'
 
 
 coin_log='https://api.bilibili.com/x/member/web/coin/log'

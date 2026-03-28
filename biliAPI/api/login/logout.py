@@ -2,7 +2,7 @@
 # Licensed under the MIT License (see LICENSE file for details)
 
 from biliAPI.tools.mRequests import mrequests
-from biliAPI.tools.url import logout_url
+from biliAPI.tools.api import api
 
-def logout(cookie):
-    return mrequests.post(logout_url,cookie=cookie,data={'biliCSRF':cookie.get('bili_jct')})
+def logout(cookie:cookieClass.Cookie):
+    return mrequests.post(api('login.login.web.logout'),cookie=cookie,data={'biliCSRF':cookie.get('bili_jct')})

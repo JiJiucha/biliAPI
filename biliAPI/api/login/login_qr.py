@@ -2,7 +2,8 @@
 # Licensed under the MIT License (see LICENSE file for details)
 
 from biliAPI.tools.mRequests import mrequests
-from biliAPI.tools.url import generate_web_url,poll_web_url
+from biliAPI.tools.api import api
+
 
 class login_qr_code:
     success=0
@@ -11,6 +12,6 @@ class login_qr_code:
     unscan=86101
 
 def generate_web():
-    return mrequests.get(generate_web_url)
+    return mrequests.get(api('login.login.web.qr.generate'))
 def poll_web(key):
-    return mrequests.get(poll_web_url,params={'qrcode_key':key})
+    return mrequests.get(api('login.login.web.qr.poll'),params={'qrcode_key':key})

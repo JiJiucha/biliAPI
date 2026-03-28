@@ -83,9 +83,9 @@ biliAPI/
 
 ---
 
-##### 文档导航
 - [biliAPI](https://github.com/JiJiucha/biliAPI)
   - api
+    <!--- [dynamic](doc/api/dynamic/dynamic.md)-->
     - [login](doc/api/login/login.md)
     - [message](doc/api/message/message.md)
     - my_info
